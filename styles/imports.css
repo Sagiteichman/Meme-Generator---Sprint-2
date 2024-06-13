@@ -1,0 +1,16 @@
+/* Basic */ 
+@import 'basics/base.css';
+@import 'basics/helpers.css';
+@import 'basics/layouts.css'; 
+
+/* Cmps */
+@import 'Cmps/header.css';
+@import 'Cmps/gallery.css';
+@import 'Cmps/editor.css';
+@import 'Cmps/about.css';
+@import 'Cmps/footer.css';
+
+/* Setup */
+@import 'Setup/vars.css';
+@import 'Setup/fonts.css';
+@import 'Setup/icons.css'; 
