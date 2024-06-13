@@ -1,6 +1,4 @@
-function onInitGallery() {
-  renderGallery()
-}
+
 
 function renderGallery() {
   let images = getImages()

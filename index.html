@@ -1,100 +1,105 @@
 <html>
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Meme Generator - Sagi Teichman</title>
+      <link rel="stylesheet" href="styles/imports.css" />
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meme Generator - Sagi Teichman</title>
-  <link rel="stylesheet" href="styles/imports.css" />
-
-</head>
-
-<body>
-  <header class="main-header main-layout">
-    <div class="logo">Logo</div>
-    <nav class="main-nav">
-      <ul class="main-nav-list">
-        <li><a href=#">Gallery</a></li>
-        <li><a href=#">Memes</a></li>
-        <li><a href=#">About</a></li>
-        <li class="drowdown-langs">
-          <select name="drowdown-langs-content" id="drowdown-langs-content">
-            <option value="en">English</option>
-            <option value="he">Hebrew</option>
-          </select>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="main-content">
-    <section class="gallery-section">
-      <nav class="gallery-nav">
-        <ul class="gallery-nav-list">
-          <li><button>Upload</button></li>
-          <li>
-            <div class="search-bar">
-              <input type="text" name="search-bar-value" id="search-bar-value" placeholder="Search By KeyWords" />
-              <a class="search-icon">Search Icon</a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </section>
-    <section class="meme-section">
-      <div class="canvas-container">
-        <canvas id="memeCanvas" width="450" height="450"> </canvas>
-      </div>
-      <aside class="editor-nav-container">
-        <nav class="editor-nav">
-          <ul class="editor-nav-list">
-            <li>
-              <input type="text" name="text-input-editor" placeholder="Insert Text" />
+    <body>
+      <header class="main-header main-layout">
+        <div class="logo">Logo</div>
+        <nav class="main-nav">
+          <ul class="main-nav-list">
+            <li><a id="gallery" href="#">Gallery</a></li>
+            <li><a href="#">Memes</a></li>
+            <li><a href="#">About</a></li>
+            <li class="drowdown-langs">
+              <select name="drowdown-langs-content" id="drowdown-langs-content">
+                <option value="en">English</option>
+                <option value="he">Hebrew</option>
+              </select>
             </li>
-            <ul class="editor-input-list">
-              <li>
-                <button>Add Line</button>
-                <button>Move Up</button>
-                <button>Move Down</button>
-                <button>Switch Line</button>
-                <button>Remove</button>
-              </li>
-            </ul>
-            <ul class="editor-sticker-list">
-              <li>
-                <button>Left</button>
-                <div>Stickers Container</div>
-                <button>Right</button>
-              </li>
-            </ul>
-            <ul class="editor-save-list">
-              <li>
-                <button>Save</button>
-                <button>Download</button>
-                <button>Publish</button>
-              </li>
-            </ul>
           </ul>
         </nav>
-      </aside>
-    </section>
-  </main>
+      </header>
 
-  <footer class="main-footer">
-    <small class="owner-creedits">Copy Made By Sagi Teichman</small>
-  </footer>
+      <main class="main-content">
+        <section class="gallery-section">
+          <nav class="gallery-nav">
+            <ul class="gallery-nav-list">
+              <li><button>Upload</button></li>
+              <li>
+                <div class="search-bar">
+                  <input
+                    type="text"
+                    name="search-bar-value"
+                    id="search-bar-value"
+                    placeholder="Search By KeyWords"
+                  />
+                  <a class="search-icon">Search Icon</a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <div class="gallery-container"></div>
+        </section>
+        <section class="meme-section">
+          <div class="canvas-container">
+            <canvas id="memeCanvas" width="450" height="450"> </canvas>
+          </div>
+          <aside class="editor-nav-container">
+            <nav class="editor-nav">
+              <ul class="editor-nav-list">
+                <li>
+                  <input
+                    type="text"
+                    name="text-input-editor"
+                    placeholder="Insert Text"
+                  />
+                </li>
+                <ul class="editor-input-list">
+                  <li>
+                    <button>Add Line</button>
+                    <button>Move Up</button>
+                    <button>Move Down</button>
+                    <button>Switch Line</button>
+                    <button>Remove</button>
+                  </li>
+                </ul>
+                <ul class="editor-sticker-list">
+                  <li>
+                    <button>Left</button>
+                    <div>Stickers Container</div>
+                    <button>Right</button>
+                  </li>
+                </ul>
+                <ul class="editor-save-list">
+                  <li>
+                    <button>Save</button>
+                    <button>Download</button>
+                    <button>Publish</button>
+                  </li>
+                </ul>
+              </ul>
+            </nav>
+          </aside>
+        </section>
+      </main>
 
+      <footer class="main-footer">
+        <small class="owner-creedits">Copy Made By Sagi Teichman</small>
+      </footer>
 
-
-  <script src="js/controllers/gallery-controller.js"> </script>
-  <script src="js/controllers/meme-controller.js"></script>
-  <script src="js/services/gallery-service.js"></script>
-  <script src="js/services/meme-service.js"></script>
-  <script src="js/services/storage-service.js"></script>
-  <script src="js/services/util.js"></script>
-</body>
-
-</html>
-
+      <script src="js/controllers/gallery-controller.js"></script>
+      <script src="js/controllers/meme-controller.js"></script>
+      <script src="js/services/gallery-service.js"></script>
+      <script src="js/services/meme-service.js"></script>
+      <script src="js/services/storage-service.js"></script>
+      <script src="js/services/util.js"></script>
+      <script src="js/main.js"></script>
+    </body>
+  </html>
 </html>

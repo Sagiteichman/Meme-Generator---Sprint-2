@@ -2,9 +2,16 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: popping-regular, sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+}
 
 body {
   margin: 0;
+  background-color: #22252c;
+  color: #ffffff;
 }
 
 img{
