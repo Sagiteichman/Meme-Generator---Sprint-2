@@ -33,7 +33,10 @@ let gMeme = {
 function initMeme() {}
 
 function openEditor() {
-  onInitMeme();
+  const gallery = document.getElementById("gallery-section");
+  gallery.style.display = "none";
+  const editor = document.getElementById("editor-section");
+  editor.style.display = "grid";
 }
 
 function setMeme(imageId) {

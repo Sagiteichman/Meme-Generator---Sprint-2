@@ -1,18 +1,27 @@
-
-
 function renderGallery() {
-  let images = getImages()
-  let imagesHTMLs = ''
-  const elGalContainer = document.querySelector('.gallery-container')
+  let images = getImages();
+  let imagesHTMLs = "";
+  const elGalContainer = document.querySelector(".gallery-container");
 
   images.forEach((image, idx) => {
-    const { id, url } = image
-    imagesHTMLs += `<img data-id="${id}" src="${url}" onclick="onImageClicked('${id}')" alt="${idx + 1}"/>`
-  })
+    const { id, url } = image;
+    imagesHTMLs += `<img data-id="${id}" src="${url}" onclick="onImageClicked('${id}')" alt="${
+      idx + 1
+    }"/>`;
+  });
 
-  elGalContainer.innerHTML = imagesHTMLs
+  elGalContainer.innerHTML = imagesHTMLs;
+  openGallery();
 }
 
 function onImageClicked(imageId) {
-  imageClicked(imageId)
+  console.log("image id", imageId);
+  imageClicked(imageId);
+}
+
+function openGallery() {
+  const editor = document.getElementById("editor-section");
+  editor.style.display = "none";
+  const gallery = document.getElementById("gallery-section");
+  gallery.style.display = "grid";
 }

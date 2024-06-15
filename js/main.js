@@ -8,8 +8,8 @@ const elGallery = document.getElementById("gallery");
 function init() {
   elGallery.onclick = renderGallery;
   elLogo.onclick = renderGallery;
-  elAbout.onclick = renderAbout;
-  elMemes.onclick = renderMemes;
+  // elAbout.onclick = renderAbout
+  // elMemes.onclick = renderMemes
 }
 
 init();

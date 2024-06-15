@@ -20,7 +20,7 @@ function onInitMeme() {
     y: gCanvas.height / 2,
   };
 
-  window.addEventListener("resize", resizeCanvas);
+  // window.addEventListener("resize", resizeCanvas)
 
   renderMeme();
 }
