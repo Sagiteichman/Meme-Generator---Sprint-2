@@ -1,5 +1,6 @@
-*{
+* {
   box-sizing: border-box;
+  text-align: center;
 }
 
 html {
@@ -14,7 +15,7 @@ body {
   color: #ffffff;
 }
 
-img{
+img {
   width: 100%;
 }
 
@@ -32,29 +33,29 @@ button {
   font-size: 1em;
 }
 
-p{
+p {
   margin: 0 0 1em;
 }
 
-canvas{
+canvas {
   border: 1px solid black;
   margin: 0;
 }
 
-.container{
+.container {
   display: flex;
   flex-wrap: wrap;
 }
 
 .canvas-container .editor-container {
-  flex: 1 1 auto; 
+  flex: 1 1 auto;
   margin: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-h2{
+h2 {
   margin-bottom: 10px;
 }
 

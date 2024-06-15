@@ -9,13 +9,21 @@
     </head>
 
     <body>
-      <header class="main-header main-layout">
-        <div class="logo">Logo</div>
+      <header class="main-header">
+        <div class="logo">
+          <img src="imgs/meme generator logo.png" id="logo" />
+        </div>
         <nav class="main-nav">
           <ul class="main-nav-list">
-            <li><a id="gallery" href="#">Gallery</a></li>
-            <li><a href="#">Memes</a></li>
-            <li><a href="#">About</a></li>
+            <li>
+              <button id="gallery">Gallery</button>
+            </li>
+            <li>
+              <button id="memes">Memes</button>
+            </li>
+            <li>
+              <button id="about">About</button>
+            </li>
             <li class="drowdown-langs">
               <select name="drowdown-langs-content" id="drowdown-langs-content">
                 <option value="en">English</option>
@@ -29,18 +37,23 @@
       <main class="main-content">
         <section class="gallery-section">
           <nav class="gallery-nav">
-            <ul class="gallery-nav-list">
-              <li><button>Upload</button></li>
-              <li>
-                <div class="search-bar">
+            <ul class="gallery-nav-list clean-list">
+              <li class="search-bar">
+                <div class="search-bar-container">
                   <input
+                    class="clean-input"
                     type="text"
                     name="search-bar-value"
                     id="search-bar-value"
                     placeholder="Search By KeyWords"
                   />
-                  <a class="search-icon">Search Icon</a>
                 </div>
+              </li>
+              <li class="keyword-container">
+                <a onClick="setFilter('funny')">funny</a>
+                <a onClick="setFilter('cat')">cat</a>
+                <a onClick="setFilter('movie')">movie</a>
+                <a onClick="setFilter('actor')">actor</a>
               </li>
             </ul>
           </nav>

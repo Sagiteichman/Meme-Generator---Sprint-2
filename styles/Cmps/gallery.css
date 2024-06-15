@@ -1,0 +1,54 @@
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  place-items: center;
+}
+
+.gallery-nav {
+  margin-bottom: 50px;
+}
+
+.gallery-nav-list {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 2fr;
+  grid-template-areas: "search keywords";
+  gap: 15px;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-nav-list .search-bar {
+  grid-area: search;
+  width: 100%;
+  height: 2fr;
+}
+
+#search-bar-value {
+  font-size: 1.3em;
+  font-family: poppins-regular;
+  padding: 10px;
+  width: 100%;
+}
+
+.search-bar-container .gallery-nav-list .keyword-container {
+  grid-area: keywords;
+  border-radius: 25px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  place-items: center;
+  overflow: hidden;
+}
+
+.gallery-nav-list .keyword-container a {
+  cursor: pointer;
+  font-family: poppins-light;
+  text-align: center;
+  transition: 0.3s ease;
+  background-color: transparent;
+}

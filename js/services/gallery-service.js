@@ -3,20 +3,24 @@
 const GALLERY_STORAGE_KEY = "gallery";
 
 const DEFAULT_IMAGES = [
-  { url: "./imgs/meme-imgs-square/2.jpg", tags: "politic,trump" },
-  // { url: "./Images/Gallery/Fixed/2.jpg", tags: "animal,dog" },
-  // { url: "./Images/Gallery/Fixed/3.jpg", tags: "animal,dog,baby" },
-  // { url: "./Images/Gallery/Fixed/4.jpg", tags: "animal,cat" },
-  // { url: "./Images/Gallery/Fixed/5.jpg", tags: "kid,baby,power" },
-  // { url: "./Images/Gallery/Fixed/6.jpg", tags: "crazy" },
-  // { url: "./Images/Gallery/Fixed/7.jpg", tags: "funny,baby" },
-  // { url: "./Images/Gallery/Fixed/8.jpg", tags: "pensive,actor" },
-  // { url: "./Images/Gallery/Fixed/10.jpg", tags: "politic,obama,barak" },
-  // { url: "./Images/Gallery/Fixed/11.jpg", tags: "love" },
-  // { url: "./Images/Gallery/Fixed/12.jpg", tags: "funny" },
-  // { url: "./Images/Gallery/Fixed/13.jpg", tags: "actor,di,caprio" },
-  // { url: "./Images/Gallery/Fixed/14.jpg", tags: "movie,matrix" },
-  // { url: "./Images/Gallery/Fixed/15.jpg", tags: "movie,lord,ring" },
+  { url: "./imgs/meme-imgs-square/1.jpg", tags: "politic,trump" },
+  { url: "./imgs/meme-imgs-square/2.jpg", tags: "animal,dog" },
+  { url: "./imgs/meme-imgs-square/3.jpg", tags: "animal,dog,baby" },
+  { url: "./imgs/meme-imgs-square/4.jpg", tags: "animal,cat" },
+  { url: "./imgs/meme-imgs-square/5.jpg", tags: "kid,baby,power" },
+  { url: "./imgs/meme-imgs-square/6.jpg", tags: "crazy" },
+  { url: "./imgs/meme-imgs-square/7.jpg", tags: "funny,baby" },
+  { url: "./imgs/meme-imgs-square/8.jpg", tags: "pensive,actor" },
+  { url: "./imgs/meme-imgs-square/9.jpg", tags: "politic,obama,barak" },
+  { url: "./imgs/meme-imgs-square/10.jpg", tags: "love" },
+  { url: "./imgs/meme-imgs-square/11.jpg", tags: "funny" },
+  { url: "./imgs/meme-imgs-square/12.jpg", tags: "actor,di,caprio" },
+  { url: "./imgs/meme-imgs-square/13.jpg", tags: "movie,matrix" },
+  { url: "./imgs/meme-imgs-square/14.jpg", tags: "movie,lord,ring" },
+  { url: "./imgs/meme-imgs-square/15.jpg", tags: "movie,lord,ring" },
+  { url: "./imgs/meme-imgs-square/16.jpg", tags: "movie,star,space" },
+  { url: "./imgs/meme-imgs-square/17.jpg", tags: "politic,vladimir,putin" },
+  { url: "./imgs/meme-imgs-square/18.jpg", tags: "movie,toys" },
 ];
 
 let gImgs;
@@ -37,7 +41,7 @@ function getImages() {
 function getImageById(imageId) {
   const image = gImgs.find((image) => image.id === imageId);
   if (!image) {
-    throw new Error("Could not find image");
+    console.log("Could not find image");
   }
   return image;
 }
