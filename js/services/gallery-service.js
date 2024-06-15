@@ -20,11 +20,11 @@ const DEFAULT_IMAGES = [
   { id: 15, url: "./imgs/meme-imgs-square/15.jpg", tags: "movie,lord,ring" },
   { id: 16, url: "./imgs/meme-imgs-square/16.jpg", tags: "movie,star,space" },
   {
-    id: 1,
+    id: 17,
     url: "./imgs/meme-imgs-square/17.jpg",
     tags: "politic,vladimir,putin",
   },
-  { id: 1, url: "./imgs/meme-imgs-square/18.jpg", tags: "movie,toys" },
+  { id: 18, url: "./imgs/meme-imgs-square/18.jpg", tags: "movie,toys" },
 ];
 
 let gImgs;
@@ -39,7 +39,8 @@ function getImages() {
 }
 
 function getImageById(imageId) {
-  const image = gImgs.find((image) => image.id === imageId);
+  const image = gImgs.find((image) => image.id === parseInt(imageId));
+  console.log(image);
   if (!image) {
     console.log("Could not find image");
   }

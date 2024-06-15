@@ -15,7 +15,6 @@ function renderGallery() {
 }
 
 function onImageClicked(imageId) {
-  console.log("image id", imageId);
   imageClicked(imageId);
 }
 

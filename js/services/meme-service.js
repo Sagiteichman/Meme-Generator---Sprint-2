@@ -40,13 +40,8 @@ function openEditor() {
 }
 
 function setMeme(imageId) {
-  gMeme.selectedImgId = imageId;
-  openEditor();
-}
-
-function setMeme(imageId) {
-  gMeme.selectedImgId = imageId;
-  openEditor();
+  gMeme.selectedImgId = parseInt(imageId);
+  renderMeme();
 }
 
 function setLineTxt(value) {

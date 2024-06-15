@@ -1,18 +1,24 @@
 "use strict";
 
-let gCanvas;
-let gCtx;
+let gCanvas = document.querySelector("#memeCanvas");
+let gCtx = gCanvas.getContext("2d");
 
-let gCurrectLine = 0;
 let gPos;
+
 let isRendered;
-let imageUrl = "imgs/meme-imgs (square)/1.jpg";
-let text = "Your Meme Text";
+let isSized;
+
+let gIsMoving;
 
 function onInitMeme() {
-  gCanvas = document.querySelector("#memeCanvas");
-  gCtx = gCanvas.getContext("2d");
+  onDisplayEditor();
+
   isRendered = false;
+  isSized = false;
+
+  // gCanvas = document.querySelector("#memeCanvas");
+  // gCtx = gCanvas.getContext("2d");
+
   addEventListeners();
 
   gPos = {
@@ -28,18 +34,30 @@ function onInitMeme() {
 function renderMeme() {
   const meme = getMeme();
   const image = getImageById(meme.selectedImgId);
-  onClearCanvas();
-  drawImgFromRemote(image);
+  if (!image) {
+    console.error("Image not found!");
+    return;
+  }
+  drawImgFromRemote(image.url);
 }
 
-function drawImgFromRemote(image) {
+function drawImgFromRemote(url) {
   const img = new Image();
-  img.src = image.url;
+  img.src = url;
   img.onload = () => {
     isRendered = true;
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     drawTxt();
   };
+}
+
+function drawRect() {
+  const meme = getMeme();
+  let lineIdx = meme.selectedLineIdx;
+  let y = meme.lines[lineIdx].pos.y;
+  let ySize = meme.lines[lineIdx].size;
+  gCtx.strokeStyle = "black";
+  gCtx.strokeRect(0, y - ySize / 2, gCanvas.width, ySize);
 }
 
 function drawTxt() {
