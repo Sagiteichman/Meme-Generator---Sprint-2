@@ -90,7 +90,7 @@ function switchLine() {
     : gMeme.selectedLineIdx++;
 
   renderMeme();
-  drawRectAfterSeconds(1);
+  drawSelectedLineRect(100);
   updateInputLine();
 
   console.log("Current Line is", gMeme.selectedLineIdx);

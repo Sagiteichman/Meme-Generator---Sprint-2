@@ -2,8 +2,11 @@
 
 const GALLERY_STORAGE_KEY = "gallery";
 
-let gImgs;
-let gFilteBy = { keywords: "" };
+let gImages;
+let gFilterBy = { tag: "" };
+let gTagClickCount = JSON.parse(localStorage.getItem("tagClickCount") ?? "{}");
+let gAllTags = {};
+let gIsTagsExpanded = false;
 
 const DEFAULT_IMAGES = [
   { id: 1, url: "./imgs/meme-imgs-square/1.jpg", tags: "politic,trump" },
@@ -33,14 +36,21 @@ const DEFAULT_IMAGES = [
 function getImages() {
   const images = [];
   for (const image of DEFAULT_IMAGES) {
-    images.push(_createImage(image));
+    const parsedImage = _createImage(image);
+    images.push(parsedImage);
+    for (const tag of parsedImage.tags) {
+      gAllTags[tag] = 0;
+    }
   }
-  gImgs = images;
+  for (const [tag, count] of Object.entries(gTagClickCount)) {
+    gAllTags[tag] = count;
+  }
+  gImages = images;
   return images;
 }
 
 function getImageById(imageId) {
-  const image = gImgs.find((image) => image.id === parseInt(imageId));
+  const image = gImages.find((image) => image.id === parseInt(imageId));
   if (!image) {
     console.log("Could not find image");
   }
@@ -54,14 +64,17 @@ function imageClicked(imageId) {
 }
 
 function _createImage(image) {
-  return { id: image.id, url: image.url, tags: image.tags };
+  return { id: image.id, url: image.url, tags: image.tags.split(",") };
 }
 
 function getFilter() {
   return gFilterBy;
 }
 
-function setFilter(value) {
-  gFilterBy.keyword = value.toLowerCase();
-  renderGallery();
+function saveTag(tag) {
+  gFilterBy.tag = tag;
+  gTagClickCount[tag] = gTagClickCount[tag] ? gTagClickCount[tag] + 1 : 1;
+  localStorage.setItem("tagClickCount", JSON.stringify(gTagClickCount));
+
+  saveToStorage(GALLERY_STORAGE_KEY, gFilterBy);
 }

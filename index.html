@@ -43,13 +43,13 @@
                   <input
                     class="clean-input"
                     type="text"
-                    name="search-bar-value"
-                    id="search-bar-value"
+                    name="search-bar"
+                    id="search-bar"
                     placeholder="Search By KeyWords"
                   />
                 </div>
               </li>
-              <li class="keyword-container">
+              <li class="tags-container">
                 <a onClick="setFilter('funny')">funny</a>
                 <a onClick="setFilter('cat')">cat</a>
                 <a onClick="setFilter('movie')">movie</a>
@@ -83,29 +83,29 @@
                   onclick="onAddLine()"
                   class=" add-button"
                   title="Add Line"
-                >ADD</button>
+                >Add a line</button>
                 <button
                   class="switch-button"
                   title="Switch Line"
                   onclick="switchLine()"
-                >SWITCH</button>
+                >Switch line</button>
                 <button
                 onclick="onDeleteLine()"
                 class="delete-button"
                 title="Remove Line"
-                >REMOVE</button>
+                >Remove line</button>
               </div>
               <div class="movement-input-container">
                 <button
                 class="move-up"
                 onclick="moveVertical(-10)"
                 title="Move Up"
-              >UP</button>
+              >Move up</button>
               <button
               class="move-down"
               onclick="moveVertical(10)"
               title="Move Down"
-            >DOWN</button>
+            >Move down</button>
               </div>
               <div class="text-control-container">
                 <button
@@ -122,13 +122,13 @@
                   class="text-color-input"
                   title="Set Text Color"
                 >Text Color
-                  <input type="color" onchange="setTextColor(value)" />
+                  <input type="color" oninput="setTextColor(value)" />
                 </button>
                 <button
                   class="stroke-color-input"
                   title="Set Text Stroke Color"
                 >Stroke Color
-                  <input type="color" onchange="setTextStrokeColor(value)" />
+                  <input type="color" oninput="setTextStrokeColor(value)" />
                 </button>
               </div>
               <div class="save-container">

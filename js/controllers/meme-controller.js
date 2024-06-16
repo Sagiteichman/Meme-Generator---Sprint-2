@@ -9,6 +9,7 @@ let isRendered;
 let isSized;
 
 let gIsMoving;
+let gStartPos;
 
 function onInitMeme() {
   onDisplayEditor();
@@ -23,40 +24,46 @@ function onInitMeme() {
     y: gCanvas.height / 2,
   };
 
-  // window.addEventListener("resize", resizeCanvas)
-
   renderMeme();
-  drawRectAfterSeconds(1);
   updateInputLine();
 }
 
-function renderMeme() {
+async function renderMeme(showSelection = true) {
   const meme = getMeme();
   const image = getImageById(meme.selectedImgId);
   if (!image) {
     console.error("Image not found!");
     return;
   }
-  drawImgFromRemote(image.url);
+  return await drawImageFromUrl(image.url, showSelection);
 }
 
-function drawImgFromRemote(url) {
-  const img = new Image();
-  img.src = url;
-  img.onload = () => {
-    isRendered = true;
-    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    drawTxt();
-  };
-}
-
-function drawRect() {
+function drawSelectedLineRect() {
   const meme = getMeme();
   let lineIdx = meme.selectedLineIdx;
   let y = meme.lines[lineIdx].pos.y;
   let ySize = meme.lines[lineIdx].size;
   gCtx.strokeStyle = "black";
   gCtx.strokeRect(0, y - ySize / 2, gCanvas.width, ySize);
+}
+
+async function drawImageFromUrl(url, showSelection) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = url;
+
+    const drawImage = () => {
+      isRendered = true;
+      gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+      drawTxt();
+      if (showSelection) {
+        drawSelectedLineRect();
+      }
+      resolve();
+    };
+
+    img.onload = drawImage;
+  });
 }
 
 function drawTxt() {
@@ -92,7 +99,7 @@ function addEventListeners() {
 }
 
 function addMouseListeners() {
-  if (!isRendered) return;
+  // if (!isRendered) return;
   gCanvas.addEventListener("mousedown", onDown);
   gCanvas.addEventListener("mousemove", onMove);
   gCanvas.addEventListener("mouseup", onUp);
@@ -130,21 +137,13 @@ function changeSize(value) {
   const meme = getMeme();
   meme.lines[meme.selectedLineIdx].size += value;
   renderMeme();
-  drawRectAfterSeconds(1);
 }
 
 function onAddLine() {
   if (!isRendered) return;
   createLine();
   renderMeme();
-  drawRectAfterSeconds(1);
   updateInputLine();
-}
-
-function drawRectAfterSeconds(sec) {
-  setTimeout(() => {
-    drawRect();
-  }, sec);
 }
 
 function updateInputLine() {
@@ -160,7 +159,6 @@ function onDeleteLine() {
   if (!isRendered) return;
   deleteLine();
   renderMeme();
-  drawRectAfterSeconds(1);
   updateInputLine();
 }
 
@@ -169,7 +167,6 @@ function moveVertical(value) {
   const meme = getMeme();
   meme.lines[meme.selectedLineIdx].pos.y += value;
   renderMeme();
-  drawRectAfterSeconds(1);
 }
 
 function getCanvas() {
@@ -181,7 +178,6 @@ function changeSize(value) {
   const meme = getMeme();
   meme.lines[meme.selectedLineIdx].size += value;
   renderMeme();
-  drawRectAfterSeconds(1);
 }
 
 function setTextStrokeColor(value) {
@@ -191,16 +187,16 @@ function setTextStrokeColor(value) {
   renderMeme();
 }
 
-function downloadMeme(elLink) {
-  if (!isRendered) return;
-  renderMeme();
-  setTimeout(() => {
-    const data = gCanvas.toDataURL();
-    elLink.href = data;
-    console.log(data);
-  }, 1);
-}
-
 function shareMeme() {
   console.log("share it!");
+}
+
+async function downloadMeme() {
+  await renderMeme(false);
+  const data = gCanvas.toDataURL();
+  const anchor = document.createElement("a");
+  anchor.href = data;
+  anchor.download = "my-meme.jpg";
+  anchor.click();
+  renderMeme();
 }

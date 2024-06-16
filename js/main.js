@@ -1,13 +1,15 @@
 "use strict";
 
-const elLogo = document.getElementById("logo");
+const gBaseFontSize = 16;
+
+const navLogo = document.getElementById("logo");
 const elAbout = document.getElementById("about");
 const elMemes = document.getElementById("memes");
-const elGallery = document.getElementById("gallery");
+const galleryNavItem = document.getElementById("gallery");
 
 function init() {
-  elGallery.onclick = onInitGallery;
-  elLogo.onclick = onInitGallery;
+  galleryNavItem.onclick = onInitGallery;
+  navLogo.onclick = onInitGallery;
   // elAbout.onclick = renderAbout
   // elMemes.onclick = renderMemes
 }
@@ -20,7 +22,6 @@ function onDisplayEditor() {
   const elAbout = document.querySelector(".about-section");
 
   elEditor.classList.remove("hide");
-
   elGallery.classList.add("hide");
   elAbout.classList.add("hide");
 }

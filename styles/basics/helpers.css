@@ -1,5 +1,4 @@
 .clean-input {
-  background: transparent;
   border: none;
   display: block;
   outline: none;
@@ -12,6 +11,6 @@
   list-style-type: none;
 }
 
-.hide {
+body .hide {
   display: none;
 }

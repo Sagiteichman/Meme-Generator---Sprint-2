@@ -1,12 +1,14 @@
 "use strict";
 
+const TOUCH_EVENTS = ["touchstart", "touchmove", "touchend"];
+
 function getEvPos(ev) {
   let pos = {
     x: ev.offsetX,
     y: ev.offsetY,
   };
 
-  if (TOUCH_EVS.includes(ev.type)) {
+  if (TOUCH_EVENTS.includes(ev.type)) {
     // Prevent triggering the mouse ev
     ev.preventDefault();
     // Gets the first touch point
@@ -20,19 +22,20 @@ function getEvPos(ev) {
   return pos;
 }
 
-function onDown(ev) {
-  gStartPos = getEvPos(ev);
+function onDown(event) {
+  gStartPos = getEvPos(event);
   gMouseDown = true;
 }
 
-function onMove(ev) {
+function onMove(event) {
   if (!gMouseDown) return;
 
-  const pos = getEvPos(ev);
-  const m = getMovement(ev);
-  draw(pos.x, pos.y, m);
+  const meme = getMeme();
+  const { offsetX, offsetY } = event;
 
-  gStartPos = pos;
+  meme.lines[meme.selectedLineIdx].pos.x = offsetX;
+  meme.lines[meme.selectedLineIdx].pos.y = offsetY;
+  renderMeme();
 }
 
 function onUp() {
