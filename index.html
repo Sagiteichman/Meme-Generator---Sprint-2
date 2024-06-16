@@ -13,13 +13,24 @@
         <div class="logo">
           <img src="imgs/meme generator logo.png" id="logo" />
         </div>
-        <nav class="main-nav">
-          <ul class="main-nav-list">
+          <div
+                  onclick="showMobileMenu()"
+                  class="mobile-menu-button">
+              menu
+          </div>
+        <nav
+                id="main-nav"
+                class="main-nav">
+          <ul
+                  id="main-nav-list"
+                  class="main-nav-list">
             <li>
               <button id="gallery">Gallery</button>
             </li>
             <li>
-              <button id="memes">Memes</button>
+              <button
+                      onclick="onDisplayMemes()"
+                      id="memes">Memes</button>
             </li>
             <li>
               <button id="about" onclick="onDisplayAbout()">About</button>
@@ -30,11 +41,22 @@
                 <option value="he">Hebrew</option>
               </select>
             </li>
+              <li class="close-mobile-menu">
+                  <button
+                          onclick="hideMobileMenu()"
+                          id="close-menu">X</button>
+              </li>
           </ul>
         </nav>
       </header>
 
       <main class="main-content">
+          <section
+                  id="memes-section"
+            class="memes-section hide"
+          >
+
+          </section>
         <section class="gallery-section" id="gallery-section">
           <nav class="gallery-nav">
             <ul class="gallery-nav-list clean-list">
@@ -60,7 +82,9 @@
           <div class="gallery-container"></div>
         </section>
 
-        <section class="meme-section hide" id="editor-section">
+        <section
+                class="meme-section hide"
+                id="editor-section">
           <div class="canvas-container">
             <canvas id="memeCanvas" width="450" height="450"> </canvas>
           </div>

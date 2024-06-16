@@ -194,9 +194,28 @@ function shareMeme() {
 async function downloadMeme() {
   await renderMeme(false);
   const data = gCanvas.toDataURL();
+
+  let memes = localStorage.getItem("savedMemes");
+  memes = memes ? JSON.parse(memes) : [];
+  memes.push(data);
+  localStorage.setItem("savedMemes", JSON.stringify(memes));
+
   const anchor = document.createElement("a");
   anchor.href = data;
   anchor.download = "my-meme.jpg";
   anchor.click();
   renderMeme();
+}
+
+async function showSavedMemes() {
+  const gallery = document.getElementById("memes-section");
+  gallery.innerHTML = "";
+  const memes = JSON.parse(localStorage.getItem("savedMemes")) || [];
+  memes.forEach((meme, index) => {
+    const img = document.createElement("img");
+    img.src = meme;
+    img.alt = `saved meme ${index + 1}`;
+    img.style.width = "100px";
+    gallery.append(img);
+  });
 }

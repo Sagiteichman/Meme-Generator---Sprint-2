@@ -52,7 +52,9 @@ function onImageClicked(imageId) {
 
 function openGallery() {
   const editor = document.getElementById("editor-section");
+  const memes = document.getElementById("memes-section");
   editor.classList.add("hide");
+  memes.classList.add("hide");
   const gallery = document.getElementById("gallery-section");
   gallery.classList.remove("hide");
 }
