@@ -115,22 +115,23 @@ function resizeCanvas() {
 function setTextColor(value) {
   if (!isRendered) return;
   const meme = getMeme();
-  meme.lines[gCurrentLine].color = value;
+  meme.lines[meme.selectedLineIdx].color = value;
   renderMeme();
 }
 
 function setTextStrokeColor(value) {
   if (!isRendered) return;
   const meme = getMeme();
-  meme.lines[gCurrentLine].strokeColor = value;
+  meme.lines[meme.selectedLineIdx].strokeColor = value;
   renderMeme();
 }
 
 function changeSize(value) {
   if (!isRendered) return;
   const meme = getMeme();
-  meme.lines[gCurrentLine].size += value;
+  meme.lines[meme.selectedLineIdx].size += value;
   renderMeme();
+  drawRectAfterSeconds(1);
 }
 
 function onAddLine() {
@@ -174,4 +175,19 @@ function moveVertical(value) {
 
 function getCanvas() {
   return gCanvas;
+}
+
+function changeSize(value) {
+  if (!isRendered) return;
+  const meme = getMeme();
+  meme.lines[meme.selectedLineIdx].size += value;
+  renderMeme();
+  drawRectAfterSeconds(1);
+}
+
+function setTextStrokeColor(value) {
+  if (!isRendered) return;
+  const meme = getMeme();
+  meme.lines[meme.selectedLineIdx].strokeColor = value;
+  renderMeme();
 }

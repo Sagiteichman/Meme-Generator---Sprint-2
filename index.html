@@ -91,7 +91,7 @@
                 >SWITCH</button>
                 <button
                 onclick="onDeleteLine()"
-                class="awe-solid awe-delete delete-button"
+                class="delete-button"
                 title="Remove Line"
                 >REMOVE</button>
               </div>
@@ -106,8 +106,32 @@
               onclick="moveVertical(10)"
               title="Move Down"
             >DOWN</button>
-
               </div>
+              <div class="text-control-container">
+                <button
+                  class="increase-button"
+                  onclick="changeSize(5)"
+                  title="Increase Text Size"
+                >Bigger</button>
+                <button
+                  class="decrease-button"
+                  onclick="changeSize(-5)"
+                  title="Decrease Text Size"
+                >Smaller</button>
+                <button
+                  class="text-color-input"
+                  title="Set Text Color"
+                >Text Color
+                  <input type="color" onchange="setTextColor(value)" />
+                </button>
+                <button
+                  class="stroke-color-input"
+                  title="Set Text Stroke Color"
+                >Stroke Color
+                  <input type="color" onchange="setTextStrokeColor(value)" />
+
+                </button>
+                </div>
            </nav> 
           </aside>
         </section>
