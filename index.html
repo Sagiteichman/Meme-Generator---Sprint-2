@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="styles/imports.css" />
     </head>
 
-    <body onload="onInitGallery()"">
+    <body onload="onInitGallery()">
       <header class="main-header">
         <div class="logo">
           <img src="imgs/meme generator logo.png" id="logo" />
@@ -22,7 +22,7 @@
               <button id="memes">Memes</button>
             </li>
             <li>
-              <button id="about">About</button>
+              <button id="about" onclick="onDisplayAbout()">About</button>
             </li>
             <li class="drowdown-langs">
               <select name="drowdown-langs-content" id="drowdown-langs-content">
@@ -60,7 +60,7 @@
           <div class="gallery-container"></div>
         </section>
 
-        <section class="meme-section" id="editor-section">
+        <section class="meme-section hide" id="editor-section">
           <div class="canvas-container">
             <canvas id="memeCanvas" width="450" height="450"> </canvas>
           </div>
@@ -129,11 +129,46 @@
                   title="Set Text Stroke Color"
                 >Stroke Color
                   <input type="color" onchange="setTextStrokeColor(value)" />
-
                 </button>
-                </div>
+              </div>
+              <div class="save-container">
+                <a onclick="downloadMeme(this)" download="My Meme">
+                  <button
+                    id="save-button"
+                    class="save-button"
+                    title="Save your Masterpiece to local"
+                  >
+                    Save
+                  </button>
+                </a>
+                <button
+                  id="share-button"
+                  class="share-button"
+                  title="Share to your friends"
+                  onclick="shareMeme()"
+                >
+                  Share
+                </button>
+              </div>
            </nav> 
           </aside>
+        </section>
+        <section class="about-section hide">
+             <article class="about-article">
+             <h1> Sagi Teichman </h1>
+             <div class="description-container">
+             <p id="description-about-section" class="description">
+            Hello!, my name is Sagi Teichman, im 26, from Rishon-Le-Zion, Israel.  
+            <br /><br />
+           my hobbies: i love evreything about the sea, and also teach wave surfing
+           i love football, my favorite team is Real Madrid the chmapions of 23/24 season 
+          <br /><br />
+           Served 4 years in the army, after that started my own business 
+           of events producing. <br /><br />
+           and also wokring with the army at Jolis base, in Refael commpany. 
+    </p>
+  </div>
+</article>
         </section>
       </main>
 

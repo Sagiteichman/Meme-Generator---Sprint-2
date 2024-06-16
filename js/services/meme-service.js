@@ -33,21 +33,18 @@ function initMeme() {
 }
 
 function openEditor() {
-  const gallery = document.getElementById("gallery-section");
-  gallery.style.display = "none";
-  const editor = document.getElementById("editor-section");
-  editor.style.display = "grid";
+  onInitMeme();
 }
 
 function setMeme(imageId) {
+  console.log("entered setmeme");
   initMeme();
   gMeme.selectedImgId = parseInt(imageId);
   renderMeme();
 }
 
 function setLineTxt(value) {
-  let currentLine = 0;
-  gMeme.lines[currentLine].txt = value;
+  gMeme.lines[gMeme.selectedLineIdx].txt = value;
   renderMeme();
 }
 

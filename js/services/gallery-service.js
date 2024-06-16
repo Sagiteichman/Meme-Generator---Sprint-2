@@ -2,6 +2,9 @@
 
 const GALLERY_STORAGE_KEY = "gallery";
 
+let gImgs;
+let gFilteBy = { keywords: "" };
+
 const DEFAULT_IMAGES = [
   { id: 1, url: "./imgs/meme-imgs-square/1.jpg", tags: "politic,trump" },
   { id: 2, url: "./imgs/meme-imgs-square/2.jpg", tags: "animal,dog" },
@@ -27,8 +30,6 @@ const DEFAULT_IMAGES = [
   { id: 18, url: "./imgs/meme-imgs-square/18.jpg", tags: "movie,toys" },
 ];
 
-let gImgs;
-
 function getImages() {
   const images = [];
   for (const image of DEFAULT_IMAGES) {
@@ -40,7 +41,6 @@ function getImages() {
 
 function getImageById(imageId) {
   const image = gImgs.find((image) => image.id === parseInt(imageId));
-  console.log(image);
   if (!image) {
     console.log("Could not find image");
   }
@@ -48,10 +48,20 @@ function getImageById(imageId) {
 }
 
 function imageClicked(imageId) {
+  console.log("entered image clicked");
   setMeme(imageId);
-  openEditor();
+  onInitMeme();
 }
 
 function _createImage(image) {
   return { id: image.id, url: image.url, tags: image.tags };
+}
+
+function getFilter() {
+  return gFilterBy;
+}
+
+function setFilter(value) {
+  gFilterBy.keyword = value.toLowerCase();
+  renderGallery();
 }

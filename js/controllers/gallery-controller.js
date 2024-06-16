@@ -5,7 +5,7 @@ function renderGallery() {
 
   images.forEach((image, idx) => {
     const { id, url } = image;
-    imagesHTMLs += `<img data-id="${id}" src="${url}" onclick="onImageClicked('${id}')" alt="${
+    imagesHTMLs += `<img data-id="${id}" src="${url}" onclick="onImageClicked(${id})" alt="${
       idx + 1
     }"/>`;
   });

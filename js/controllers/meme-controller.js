@@ -16,9 +16,6 @@ function onInitMeme() {
   isRendered = false;
   isSized = false;
 
-  // gCanvas = document.querySelector("#memeCanvas");
-  // gCtx = gCanvas.getContext("2d");
-
   addEventListeners();
 
   gPos = {
@@ -29,6 +26,8 @@ function onInitMeme() {
   // window.addEventListener("resize", resizeCanvas)
 
   renderMeme();
+  drawRectAfterSeconds(1);
+  updateInputLine();
 }
 
 function renderMeme() {
@@ -190,4 +189,18 @@ function setTextStrokeColor(value) {
   const meme = getMeme();
   meme.lines[meme.selectedLineIdx].strokeColor = value;
   renderMeme();
+}
+
+function downloadMeme(elLink) {
+  if (!isRendered) return;
+  renderMeme();
+  setTimeout(() => {
+    const data = gCanvas.toDataURL();
+    elLink.href = data;
+    console.log(data);
+  }, 1);
+}
+
+function shareMeme() {
+  console.log("share it!");
 }

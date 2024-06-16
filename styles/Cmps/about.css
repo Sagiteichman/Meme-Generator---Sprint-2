@@ -1,0 +1,24 @@
+.about-section {
+  padding: 30px;
+  margin-bottom: 16px;
+  place-content: center;
+}
+
+.about-article {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+}
+
+.description {
+  padding-inline-end: 10vw;
+  padding-inline-start: 10vw;
+  font-size: 1em;
+  font-family: poppins-light;
+  text-align: center;
+}
+
+.description-container {
+  flex-basis: 50%;
+}
