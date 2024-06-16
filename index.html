@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="styles/imports.css" />
     </head>
 
-    <body>
+    <body onload="onInitGallery()"">
       <header class="main-header">
         <div class="logo">
           <img src="imgs/meme generator logo.png" id="logo" />
@@ -59,45 +59,56 @@
           </nav>
           <div class="gallery-container"></div>
         </section>
+
         <section class="meme-section" id="editor-section">
           <div class="canvas-container">
             <canvas id="memeCanvas" width="450" height="450"> </canvas>
           </div>
-          <aside class="editor-nav-container">
+
+          <aside class="editor-container">
             <nav class="editor-nav">
-              <ul class="editor-nav-list">
-                <li>
-                  <input
-                    type="text"
-                    name="text-input-editor"
-                    placeholder="Insert Text"
-                  />
-                </li>
-                <ul class="editor-input-list">
-                  <li>
-                    <button>Add Line</button>
-                    <button>Move Up</button>
-                    <button>Move Down</button>
-                    <button>Switch Line</button>
-                    <button>Remove</button>
-                  </li>
-                </ul>
-                <ul class="editor-sticker-list">
-                  <li>
-                    <button>Left</button>
-                    <div>Stickers Container</div>
-                    <button>Right</button>
-                  </li>
-                </ul>
-                <ul class="editor-save-list">
-                  <li>
-                    <button>Save</button>
-                    <button>Download</button>
-                    <button>Publish</button>
-                  </li>
-                </ul>
-              </ul>
-            </nav>
+              <div class="text-input-container">
+                <input
+                  class="clean-input"
+                  type="text"
+                  name="text-input-editor"
+                  id="text-input-editor"
+                  placeholder="Insert Text"
+                  onkeyup="setLineTxt(value)"
+                />
+               </div>
+               <div class="lines-movement-container">
+                <div class="lines-input-container">
+                  <button 
+                  onclick="onAddLine()"
+                  class=" add-button"
+                  title="Add Line"
+                >ADD</button>
+                <button
+                  class="switch-button"
+                  title="Switch Line"
+                  onclick="switchLine()"
+                >SWITCH</button>
+                <button
+                onclick="onDeleteLine()"
+                class="awe-solid awe-delete delete-button"
+                title="Remove Line"
+                >REMOVE</button>
+              </div>
+              <div class="movement-input-container">
+                <button
+                class="move-up"
+                onclick="moveVertical(-10)"
+                title="Move Up"
+              >UP</button>
+              <button
+              class="move-down"
+              onclick="moveVertical(10)"
+              title="Move Down"
+            >DOWN</button>
+
+              </div>
+           </nav> 
           </aside>
         </section>
       </main>

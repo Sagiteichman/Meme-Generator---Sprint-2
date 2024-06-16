@@ -1,3 +1,23 @@
-/* .meme-section {
-  display: none;
-} */
+.meme-section {
+  padding: 30px;
+  margin-bottom: 16px;
+  display: flex;
+  place-content: center;
+  justify-content: space-evenly;
+  place-items: center;
+  gap: 10px;
+}
+.canvas-container {
+  flex-basis: 30%;
+  display: flex;
+}
+
+#memeCanvas {
+  border: 6px solid #ebeef317;
+  place-self: center;
+  border-radius: 25px;
+  margin-bottom: 8px;
+}
+
+img {
+}

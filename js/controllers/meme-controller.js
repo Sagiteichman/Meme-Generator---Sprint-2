@@ -132,3 +132,46 @@ function changeSize(value) {
   meme.lines[gCurrentLine].size += value;
   renderMeme();
 }
+
+function onAddLine() {
+  if (!isRendered) return;
+  createLine();
+  renderMeme();
+  drawRectAfterSeconds(1);
+  updateInputLine();
+}
+
+function drawRectAfterSeconds(sec) {
+  setTimeout(() => {
+    drawRect();
+  }, sec);
+}
+
+function updateInputLine() {
+  const elInput = document.getElementById("text-input-editor");
+  const currentMeme = getMeme();
+
+  let lineValue = currentMeme.lines[currentMeme.selectedLineIdx].txt;
+
+  elInput.value = lineValue;
+}
+
+function onDeleteLine() {
+  if (!isRendered) return;
+  deleteLine();
+  renderMeme();
+  drawRectAfterSeconds(1);
+  updateInputLine();
+}
+
+function moveVertical(value) {
+  if (!isRendered) return;
+  const meme = getMeme();
+  meme.lines[meme.selectedLineIdx].pos.y += value;
+  renderMeme();
+  drawRectAfterSeconds(1);
+}
+
+function getCanvas() {
+  return gCanvas;
+}

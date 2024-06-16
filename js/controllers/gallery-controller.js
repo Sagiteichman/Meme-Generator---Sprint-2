@@ -24,3 +24,8 @@ function openGallery() {
   const gallery = document.getElementById("gallery-section");
   gallery.style.display = "grid";
 }
+
+function onInitGallery() {
+  openGallery();
+  renderGallery();
+}
